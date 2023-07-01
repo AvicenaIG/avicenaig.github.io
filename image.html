@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-M4Q9XCZ');</script>
+<!-- End Google Tag Manager -->
+    <title>Image Display</title>
+    <style>
+      /* Ensure the image occupies a maximum of 100% of the screen width */
+      #imageDisplay {
+        width: 100%;
+        height: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M4Q9XCZ"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+    <img src="placeholder.jpg" alt="Image" id="imageDisplay" />
+
+    <script>
+      // Get the value of the 'image' parameter from the URL
+      const urlParams = new URLSearchParams(window.location.search);
+      const imageUrl = urlParams.get('image');
+
+      // Update the 'src' attribute of the image tag with the provided image URL
+      if (imageUrl) {
+        const imageDisplay = document.getElementById('imageDisplay');
+        imageDisplay.src = imageUrl;
+      }
+    </script>
+  </body>
+</html>
