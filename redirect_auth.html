@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-M4Q9XCZ');</script>
+  <!-- End Google Tag Manager -->
+  <title>Redirecting...</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 150px;
+    }
+
+    h1 {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    /* CSS for the image */
+    img {
+      max-width: 600px;
+      display: block;
+      margin: 0 auto;
+      margin-top: 20px;
+    }
+  </style>
+  <script>
+    // Function to decrypt the URL
+    function decryptUrl(encryptedUrl, key) {
+      let decryptedUrl = '';
+      let keyLength = key.length;
+
+      for (let i = 0; i < encryptedUrl.length; i++) {
+        let decryptedChar = String.fromCharCode(encryptedUrl.charCodeAt(i) - key.charCodeAt(i % keyLength));
+        decryptedUrl += decryptedChar;
+      }
+
+      return decryptedUrl;
+    }
+
+    // Extract the destination URL parameter from the current URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const encryptedDestination = urlParams.get('destination');
+    const key = "propertiitselaludihati"; // Replace with your decryption key
+
+    // Decrypt the destination URL
+    const destination = decryptUrl(encryptedDestination, key);
+    let redirectingText = 'Redirecting...';
+
+    // Set the redirecting text based on the destination URL
+    if (destination) {
+      if (destination.includes('olx')) {
+        redirectingText = 'Redirecting to OLX';
+      } else if (destination.includes('rumah123')) {
+        redirectingText = 'Redirecting to Rumah123';
+      }
+
+      // Redirect to the destination URL after 5 seconds
+      setTimeout(() => {
+        window.location.href = destination;
+      }, 5000);
+    }
+
+    // Function to handle the manual redirect button click
+    function redirectToDestination() {
+      if (destination) {
+        window.location.href = destination;
+      }
+    }
+  </script>
+</head>
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M4Q9XCZ"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+  <h1 id="redirectingText">Redirecting...</h1>
+  <p>If you are not automatically redirected within 5 seconds, please click the button below.</p>
+
+  <!-- Display a "Click Here" button if the redirect doesn't happen -->
+  <button onclick="redirectToDestination()">Click Here</button>
+
+  <!-- Insert the image -->
+  <img src="https://tribelio-s3-production-temp.s3.ap-southeast-1.amazonaws.com/imgupload/20230506/1/7/5/7/4/2023050617574862db9e3397c76207a687c360e0243317." alt="Image" />
+
+  <script>
+    // Set the redirecting text
+    document.getElementById('redirectingText').innerText = redirectingText;
+  </script>
+</body>
+</html>
